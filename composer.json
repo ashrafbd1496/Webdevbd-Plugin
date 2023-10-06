@@ -1,0 +1,20 @@
+{
+  "name": "ashraf/webdevbd",
+  "description": "Tareq hasan plugin dev tutorial practice",
+  "type": "wordpress-plugin",
+  "license": "GPLv2",
+  "autoload": {
+    "psr-4": {
+      "Ashraf\\Webdevbd\\": "includes/"
+    },
+    "files": []
+  },
+  "authors": [
+    {
+      "name": "ashrafbd1496",
+      "email": "asraf1496@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {}
+}
