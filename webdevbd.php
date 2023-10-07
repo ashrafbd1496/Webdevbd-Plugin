@@ -87,7 +87,12 @@ final class Webdevbd
      */
     public function init_plugin()
     {
-        new Ashraf\Webdevbd\Admin\Menu();
+        //admin/menu class willl load when we are in backend
+        if (is_admin()) {
+            new Ashraf\Webdevbd\Admin();
+        }else {
+            new Ashraf\Webdevbd\Frontend();
+        }
     }
 
     /**
