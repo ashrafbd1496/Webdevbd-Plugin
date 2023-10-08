@@ -7,3 +7,5 @@
     [code](https://github.com/tareq1988/wedevs-academy/tree/class-1)
 
     we use final keyword so that nobody can extend the class
+
+    added fixing of same submenu name as top level menu name inside assets/images
