@@ -49,12 +49,12 @@ class Addressbook{
 
         // check nonce is valid
         if (! wp_verify_nonce($_POST['_wpnonce'], 'new-address')) {
-            wp_die('Are you cheating?');
+            wp_die('I know you are cheating, man!');
         }
 
         //check user capability to submit form
         if (! current_user_can('manage_options')) {
-            wp_die('Are you checting?');
+            wp_die('I know you are cheating, man!');
         }
 
     
