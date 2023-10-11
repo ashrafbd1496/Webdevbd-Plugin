@@ -102,17 +102,9 @@ final class Webdevbd
     public function activate()
     {
 
-        $installed = get_option('webdevbd_installed');
+       $installer = new Ashraf\Webdevbd\Installer();
 
-        /**
-         *It will save the time when a user install the plugin
-         *so we can adversite them
-         */
-        if (!$installed) {
-            update_option('webdevbd_installed', time());
-        }
-
-        update_option('webdevbd_version', WEBDEVBD_VERSION);
+       $installer->run();
     }
 }
 

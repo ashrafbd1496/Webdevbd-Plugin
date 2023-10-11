@@ -2,9 +2,7 @@
 
 ### Notes:
 
-    we can add wp-content and wp-conclude folder into plugin folder to get functions details during development time.
-
-    [Video](https://www.youtube.com/watch?v=D_I3qpuGKno&list=PLu-53K60L1JR3DJqrtmPTdZluw-TaQ9-S&index=6)
+     [Video](https://www.youtube.com/watch?v=D_I3qpuGKno&list=PLu-53K60L1JR3DJqrtmPTdZluw-TaQ9-S&index=6)
 
     [code](https://github.com/tareq1988/wedevs-academy/tree/class-1)
 
@@ -14,4 +12,4 @@
 
     File name should be Capitalized like Shortcode.php , Frontedn.php
 
-    
+     Databse table name always should be plural
