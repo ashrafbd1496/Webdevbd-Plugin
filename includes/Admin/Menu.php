@@ -7,9 +7,11 @@ namespace Ashraf\Webdevbd\Admin;
  */
 class Menu
 {
+    public $addressbook;
 
-    function __construct()
+    function __construct($addressbook)
     {
+        $this->addressbook = $addressbook;
         add_action('admin_menu', [$this, 'admin_menu']);
     }
 
@@ -21,26 +23,16 @@ class Menu
         $parent_slug = 'webdevbd-options';
         $capability = 'manage_options';
 
+        add_menu_page(__('Plugin Options', 'webdevbd'), __('Plugin Options', 'webdevbd'), $capability, $parent_slug, [$this->addressbook, 'plugin_page'], 'dashicons-welcome-learn-more', 2);
 
+        add_submenu_page($parent_slug, __('Address Book', 'webdevbd'), __('Address Book', 'webdevbd'), $capability, $parent_slug, [$this->addressbook, 'plugin_page']);
 
-        add_menu_page(__('Plugin Options', 'webdevbd'), __('Plugin Options', 'webdevbd'), $capability, $parent_slug, [$this, 'addressbook_page'], 'dashicons-welcome-learn-more', 2);
-
-        add_submenu_page($parent_slug ,__('Address Book', 'webdevbd'),__('Address Book', 'webdevbd'), $capability, $parent_slug, [$this, 'addressbook_page']);
-
-        add_submenu_page($parent_slug ,__('Settings', 'webdevbd'),__('Settings', 'webdevbd'), $capability, 'addressbook-setting', [$this, 'addressbook_setting']);
+        add_submenu_page($parent_slug, __('Settings', 'webdevbd'), __('Settings', 'webdevbd'), $capability, 'addressbook-setting', [$this, 'addressbook_setting']);
     }
 
- 
-
-    public function addressbook_page() {
-       $addressbook = new Addressbook();
-       $addressbook -> plugin_page();
-    }
-
-     public function addressbook_setting() {
+    public function addressbook_setting()
+    {
         echo 'Hello from Addressbook Setting';
     }
 
-
-
-}//end class
+} //end class

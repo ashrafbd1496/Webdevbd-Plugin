@@ -1,12 +1,9 @@
 <div class="wrap">
 
     <h1 class="wp-heading-inline"><?php _e('New Address', 'webdevbd')?></h1>
-
-
-    <?php
+    <?php echo '<pre>';
 var_dump($this->errors);
-
-?>
+echo '</pre>'; ?>
 
     <form action="" method="post">
         <table class="form-table">
