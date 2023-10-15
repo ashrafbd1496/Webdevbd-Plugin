@@ -44,7 +44,7 @@ class Installer
 
         $charset_collate = $wpdb->get_charset_collate();
 
-        $schema = "CREATE TABLE IF NOT EXISTS `test`.`{$wpdb->prefix}_webdevbd_addresses` ( `id` INT(11) UNSIGNED NOT NULL , `name` VARCHAR(100) NOT NULL , `address` VARCHAR(255) NULL , `phone` VARCHAR(30) NULL , `created_by` BIGINT(20) UNSIGNED NOT NULL , `created_at` DATETIME NOT NULL ) $charset_collate";
+        $schema = "CREATE TABLE IF NOT EXISTS `test`.`{$wpdb->prefix}webdevbd_addresses` ( `id` INT(11) UNSIGNED NOT NULL , `name` VARCHAR(100) NOT NULL , `address` VARCHAR(255) NULL , `phone` VARCHAR(30) NULL , `created_by` BIGINT(20) UNSIGNED NOT NULL , `created_at` DATETIME NOT NULL ) $charset_collate";
 
         if (!function_exists('dbDelta')) {
             require_once ABSPATH . 'wp-admin/includes/upgrade.php';
