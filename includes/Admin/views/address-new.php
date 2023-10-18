@@ -1,9 +1,7 @@
 <div class="wrap">
 
     <h1 class="wp-heading-inline"><?php _e('New Address', 'webdevbd')?></h1>
-    <?php echo '<pre>';
-var_dump($this->errors);
-echo '</pre>'; ?>
+
 
     <form action="" method="post">
         <table class="form-table">
@@ -14,6 +12,9 @@ echo '</pre>'; ?>
                     </th>
                     <td>
                         <input type="text" name="name" id="name" class="regular-text" value="">
+                        <?php if ($this->has_error('name')) {?>
+                            <p class="error-description"><?php echo $this->get_error('name'); ?></p>
+                        <?php }?>
                     </td>
                 </tr>
 
@@ -32,6 +33,9 @@ echo '</pre>'; ?>
                     </th>
                     <td>
                         <input type="text" name="phone" id="phone" class="regular-text" value="">
+                        <?php if (isset($this->errors['phone'])) {?>
+                            <p class="error-description"><?php echo $this->errors['phone']; ?></p>
+                        <?php }?>
                     </td>
                 </tr>
 

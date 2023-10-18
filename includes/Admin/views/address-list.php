@@ -1,7 +1,18 @@
 <div class="wrap">
 
-    <h1 class="wp-heading-inline"><?php _e('Addressbook', 'webdevbd') ?></h1>
+    <h1 class="wp-heading-inline"><?php _e('Addressbook', 'webdevbd')?></h1>
 
-    <a href="<?php echo admin_url('admin.php?page=webdevbd-options&action=new') ?>" class = "page-title-action"'><?php _e('Add New', 'webdevbd') ?></a>
+    <a href="<?php echo admin_url('admin.php?page=webdevbd-options&action=new') ?>" class = "page-title-action"'><?php _e('Add New', 'webdevbd')?></a>
 
-</div>  
+    <form action="" method="post">
+         <?php
+$table = new Ashraf\Webdevbd\Admin\Address_List();
+$table->prepare_items();
+$table->display();
+?>
+    </form>
+
+
+
+
+</div>
