@@ -6,7 +6,7 @@
     <form action="" method="post">
         <table class="form-table">
             <tbody>
-                <tr>
+                 <tr class="row<?php echo $this->has_error('name') ? ' form-invalid' : ''; ?>">
                     <th scope="row">
                         <label for="name"><?php _e('Name', 'webdevbbd');?></label>
                     </th>
@@ -27,7 +27,7 @@
                     </td>
                 </tr>
 
-                <tr>
+                <tr class="row<?php echo $this->has_error('phone') ? ' form-invalid' : ''; ?>">
                     <th scope="row">
                         <label for="phone"><?php _e('Phone', 'webdevbbd');?></label>
                     </th>

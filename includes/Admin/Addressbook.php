@@ -2,17 +2,20 @@
 
 namespace Ashraf\Webdevbd\Admin;
 
+use Ashraf\Webdevbd\Traits\Form_Error;
+
 /**
  * Addressbook handle classs
  */
 class Addressbook
 {
-
-    public $errors = [];
+    use Form_Error;
 
     public function plugin_page()
     {
         $action = isset($_GET['action']) ? $_GET['action'] : 'list';
+
+        $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
         switch ($action) {
             case 'new':
@@ -20,6 +23,7 @@ class Addressbook
                 break;
 
             case 'edit':
+                $address = webdevbd_get_single_address($id);
                 $template = __DIR__ . '/views/address-edit.php';
                 break;
 
@@ -62,8 +66,12 @@ class Addressbook
             wp_die('I know you are cheating, man!');
         }
 
+        $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+
         $name = isset($_POST['name']) ? sanitize_text_field($_POST['name']) : '';
+
         $address = isset($_POST['address']) ? sanitize_textarea_field($_POST['address']) : '';
+
         $phone = isset($_POST['phone']) ? sanitize_text_field($_POST['phone']) : '';
 
         if (empty($name)) {
@@ -78,39 +86,29 @@ class Addressbook
             return;
         }
 
-        $insert_id = wp_webdevbd_address([
+        $args = [
             'name' => $name,
             'address' => $address,
             'phone' => $phone,
-        ]);
+        ];
+        if ($id) {
+            $args['id'] = $id;
+        }
+
+        $insert_id = webdevbd_insert_address($args);
 
         if (is_wp_error($insert_id)) {
             wp_die($insert_id->get_error_message());
         }
-
-        $redirected_to = admin_url('admin.php?page=webdevbd-options&inserted=ture');
+        if ($id) {
+            $redirected_to = admin_url('admin.php?page=webdevbd-options&action=edit&address-updated=true&id=' . $id);
+        } else {
+            $redirected_to = admin_url('admin.php?page=webdevbd-options&inserted=ture');
+        }
         wp_redirect($redirected_to);
 
         exit;
 
     } //end from handler function
-
-    /**
-     * Error handler function
-     */
-    function has_error($key)
-    {
-        return isset($this->errors[$key]) ? true : false;
-
-    }
-
-    function get_error($key)
-    {
-        if (isset($this->errors[$key])) {
-            return $this->errors[$key];
-        }
-        return false;
-
-    }
 
 } //end class
