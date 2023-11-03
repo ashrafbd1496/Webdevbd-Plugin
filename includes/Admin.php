@@ -25,7 +25,7 @@ class Admin
     {
 
         add_action('admin_init', [$addressbook, 'form_handler']);
-        add_action('webdevbd-delete-address', [$addressbook, 'webdevbd_delete_address']);
+        add_action('admin_post_webdevbd-delete-address', [$addressbook, 'webdevbd_delete_address']);
     }
 
 } //end class

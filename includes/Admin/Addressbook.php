@@ -111,4 +111,31 @@ class Addressbook
 
     } //end from handler function
 
+    /**
+     * Function for delete address
+     */
+    public function webdevbd_delete_address()
+    {
+        // check nonce is valid
+        if (!wp_verify_nonce($_REQUEST['_wpnonce'], 'webdevbd-delete-address')) {
+            wp_die('I know you are cheating, man!');
+        }
+
+        //check user capability to submit form
+        if (!current_user_can('manage_options')) {
+            wp_die('I know you are cheating, man!');
+        }
+
+        $id = isset($_REQUEST['id']) ? intval($_REQUEST['id']) : 0;
+
+        if (webdevbd_delete_address($id)) {
+            $redirected_to = admin_url('admin.php?page=webdevbd-options&address-deleted=true');
+        } else {
+            $redirected_to = admin_url('admin.php?page=webdevbd-options&address-deleted=false');
+        }
+
+        wp_redirect($redirected_to);
+        exit;
+    }
+
 } //end class
