@@ -50,8 +50,6 @@ final class Webdevbd
         add_action('plugins_loaded', [$this, 'init_plugin']);
     }
 
-
-
     /**
      * initializes a singleton instance
      *
@@ -68,7 +66,6 @@ final class Webdevbd
         return $instance;
     }
 
-
     /**
      * defined the required plugin constant
      *
@@ -80,17 +77,18 @@ final class Webdevbd
         define('WEBDEVBD_FILE', __FILE__);
         define('WEBDEVBD_PATH', __DIR__);
         define('WEBDEVBD_URL', plugins_url('', WEBDEVBD_FILE));
-        define('WEBDEVBD_ASSETS', WEBDEVBD_URL  . '/assets');
+        define('WEBDEVBD_ASSETS', WEBDEVBD_URL . '/assets');
     }
     /**
-     * initialize the plugin 
+     * initialize the plugin
      */
     public function init_plugin()
     {
+        new Ashraf\Webdevbd\Assets();
         //admin/menu class willl load when we are in backend
         if (is_admin()) {
             new Ashraf\Webdevbd\Admin();
-        }else {
+        } else {
             new Ashraf\Webdevbd\Frontend();
         }
     }
@@ -102,9 +100,9 @@ final class Webdevbd
     public function activate()
     {
 
-       $installer = new Ashraf\Webdevbd\Installer();
+        $installer = new Ashraf\Webdevbd\Installer();
 
-       $installer->run();
+        $installer->run();
     }
 }
 
