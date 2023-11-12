@@ -1,17 +1,14 @@
-<?Php 
+<?Php
 
 namespace Ashraf\Webdevbd;
 
+class Frontend
+{
 
-
-class Frontend{
-    
-    function __construct(){
-        new Frontend\Shortcode(); 
+    function __construct()
+    {
+        new Frontend\Shortcode();
+        new Frontend\Enquiry();
     }
-
-
-
-
 
 } //end class

@@ -85,6 +85,11 @@ final class Webdevbd
     public function init_plugin()
     {
         new Ashraf\Webdevbd\Assets();
+
+        if (defined('DOING_AJAX') && DOING_AJAX) {
+            new Ashraf\Webdevbd\Ajax();
+        }
+
         //admin/menu class willl load when we are in backend
         if (is_admin()) {
             new Ashraf\Webdevbd\Admin();
