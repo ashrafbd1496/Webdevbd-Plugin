@@ -35,6 +35,7 @@ class Menu
     function webdevbd_enqueue_assets()
     {
         wp_enqueue_style('webdevbd-admin-style');
+        wp_enqueue_script('webdevbd-admin-script');
     }
 
     public function addressbook_setting()

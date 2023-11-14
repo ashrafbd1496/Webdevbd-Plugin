@@ -93,6 +93,13 @@ class Assets
 
         ]);
 
+        wp_localize_script('webdevbd-admin-script', 'WebDevBdAjx', [
+            'nonce' => wp_create_nonce('webdevbd-admin-nonce'),
+            'confirm' => __('Are you sure ?', 'webdevbd'),
+            'error' => __('Admin nonce went wrong', 'webdevbd'),
+
+        ]);
+
     } //end asset function
 
 } //end class
