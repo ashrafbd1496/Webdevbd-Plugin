@@ -96,6 +96,8 @@ final class Webdevbd
         } else {
             new Ashraf\Webdevbd\Frontend();
         }
+
+        new Ashraf\Webdevbd\API(); 
     }
 
     /**

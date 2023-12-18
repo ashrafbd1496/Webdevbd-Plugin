@@ -1,0 +1,6 @@
+1. Get request at post man - 
+localhost/test/wp-json/webdevbd/v1/contacts/
+
+2. It's better to use thunder client for post man in vs code
+
+3. 
